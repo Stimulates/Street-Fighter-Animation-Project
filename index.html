@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Street Fighter</title>
+
+<style type="text/css">
+	body{
+		margin: 0;
+		padding: 0;
+	}
+
+	#KO{
+		display: none;
+	}
+
+	#ryugone{
+		display: none;
+	}
+
+	#kendead{
+		display: none;
+	}
+
+</style>
+
+</head>
+<body>
+<audio id="stagesong" autoplay no-repeat src="stage.mp3" autoplay></audio>
+<audio id="fightsong" autoplay no-repeat src="fight.mp3" autoplay p></audio>
+<audio id="you" no-repeat src="you.mp3" play()></audio>
+<audio id="win" no-repeat src="win.mp3" play style="transition: 3s" ()></audio>
+
+
+<audio id="ballsong" autoplay no-repeat src="ball.mp3" autoplay></audio>
+
+<div id="background" style="position: relative;">
+	<img src="background.gif" width="100%" height="736px" style="position: absolute;">
+</div>
+
+<div id="container" style="background: blue; width: 100%; position: relative;">
+	<img id="ryu" src="ryuball.gif" style="position: absolute; top: 404px; left: 20px;" height="200" width="200">
+
+	<img id="ken" src="peaceken.gif" style="position: absolute; top: 304px; left: 80%;" height="300" width="220">
+
+	<img id="ball" src="hadoken.png" style="position: absolute; top: 364px; left: 10px;" height="300" width="300" >
+
+	<img id="ryugone"  src="ryu.gif"   style="position: absolute; top: 314px; left: 40px;  " height="300" width="200" >
+
+	<img id="kendead" src="done.gif" style="position: absolute; top: 304px; left: 74%; " height="300" width="340">
+
+	<img id="KO" src="ko.png" style="position: absolute; top: 160px; left: 480px; " height="300" width="500">
+
+	<img src="logo.png" style="position: absolute; top: -8px; left: 480px; " height="200" width="500">
+
+</div>
+
+
+
+<body onload="Move();">
+
+
+<script type="text/javascript">
+    
+   var pos = 90;
+    function Move() {
+        var elem = document.getElementById("ball");
+        
+        var id = setInterval(frame, 1);
+
+   function frame() {
+        if (pos == 980) {
+        	smoke()
+            clearInterval(id);
+
+       } else {
+            pos++;
+            elem.style.left = pos + 'px';
+        }
+    }
+    function smoke() {
+        if(pos == 980) {
+         document.getElementById("ryugone").style.display="block";
+         document.getElementById("ryu").style.display="none";
+          document.getElementById("ken").style.display="none";
+         document.getElementById("ball").style.display="none";
+          document.getElementById("KO").style.display="block";
+          document.getElementById("kendead").style.display="block";
+         document.getElementById('win').play();
+
+
+        }
+    }
+}
+</script>
+</body>
+</html>
